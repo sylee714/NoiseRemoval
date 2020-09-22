@@ -14,7 +14,7 @@ public class Main {
 		nr.basicFilter();
 		
 		String result = nr.getHTML();
-		
+//		System.out.println(result);
 		String dst = "filtered.html";
 		nr.writeToFile(result, dst);
 		

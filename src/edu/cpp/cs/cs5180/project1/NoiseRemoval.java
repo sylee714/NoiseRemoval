@@ -133,7 +133,8 @@ public class NoiseRemoval {
 	
 	public void writeToFile(String str, String filePath) {
 		try {
-			FileWriter myWriter = new FileWriter(filePath);
+			// Second parameter = false means overwrite; true means otherwise.
+			FileWriter myWriter = new FileWriter(filePath, false);
 			myWriter.write(str);
 			myWriter.close();
 			System.out.println("Successfully wrote to the file.");			
@@ -145,7 +146,8 @@ public class NoiseRemoval {
 	
 	public String getHTML() {
 		String result = "";
-		Elements elements = doc.select("*");
+		Elements elements = doc.select("html");
+		System.out.println(elements.size());
 		for (Element element : elements) {
 			result += element.toString();
 		}
