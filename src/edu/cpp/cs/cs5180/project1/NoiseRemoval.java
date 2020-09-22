@@ -51,7 +51,7 @@ public class NoiseRemoval {
 	}
 	
 	/**
-	 * 
+	 * Remove obvious noise tags
 	 */
 	public void removeTags() {
 		for (String tag: basicTags) {
@@ -59,8 +59,13 @@ public class NoiseRemoval {
 		}
 	}
 	
+	//removes all html aspects
+	public static String html2text(String html) {
+	    return Jsoup.parse(html).text();
+	}
+	
 	/**
-	 * 
+	 * Traverse the tree
 	 */
 	public void traverse() {
 //		int maxDepth = 0;
@@ -93,6 +98,9 @@ public class NoiseRemoval {
 //		System.out.println("Max Depth: " + maxDepth);
 	}
 	
+	/**
+	 * Remove empty tags after performing first removal
+	 */
 	public void removeEmptyTags() {
 		Elements elements = doc.body().select("*");
 		
@@ -106,15 +114,10 @@ public class NoiseRemoval {
 		}
 	}
 	
+	/**
+	 * Remove tags with navigation purpose
+	 */
 	public void removeNav() {
-//		String nav = "div[class*=nav]";
-//		Elements elements = doc.select(nav);
-//		for (Element element : elements) {
-//			System.out.println("Tag: " + element.tag());
-//			System.out.println("ID: " + element.id());
-//			System.out.println("Attr: " + element.attributes());
-//		}
-//		nav = "div[id*=nav]";
 		Elements elements = doc.select("nav");
 		String[] navs = {"div[class*=nav]", "div[role*=nav]", "div[id*=nav]"};
 		for (String nav : navs) {
