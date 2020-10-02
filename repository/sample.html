@@ -1,0 +1,375 @@
+<html class="client-nojs" lang="en" dir="ltr"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <title>Information retrieval - Wikipedia</title>     
+ <meta name="ResourceLoaderDynamicStyles" content="">  
+ <meta name="generator" content="MediaWiki 1.36.0-wmf.9"> 
+ <meta name="referrer" content="origin"> 
+ <meta name="referrer" content="origin-when-crossorigin"> 
+ <meta name="referrer" content="origin-when-cross-origin">            
+</head>
+<body>
+<div id="content" class="mw-body" role="main">
+<h1 id="firstHeading" class="firstHeading" lang="en"> Information retrieval </h1> 
+<div id="bodyContent" class="mw-body-content">
+<div id="siteSub" class="noprint">
+From Wikipedia, the free encyclopedia
+ 
+</div>
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+<div class="mw-parser-output">
+<div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">
+Obtaining information resources relevant to an information need
+ 
+</div>
+<p>
+<b> Information retrieval </b> ( <b> IR </b> ) is the activity of obtaining resources that are relevant to an information need from a collection of those resources. Searches can be based on or other content-based indexing. Information retrieval is the science of searching for information in a document, searching for documents themselves, and also searching for the that describes data, and for databases of texts, images or sounds. 
+</p>
+<p>
+Automated information retrieval systems are used to reduce what has been called . An IR system is a software system that provides access to books, journals and other documents; stores and manages those documents. are the most visible . 
+</p>
+<h2> 
+<span class="mw-headline" id="Overview">
+Overview 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<p>
+An information retrieval process begins when a user enters a query into the system. Queries are formal statements of information needs, for example search strings in web search engines. In information retrieval a query does not uniquely identify a single object in the collection. Instead, several objects may match the query, perhaps with different degrees of . 
+</p>
+<p>
+An object is an entity that is represented by information in a content collection or . User queries are matched against the database information. However, as opposed to classical SQL queries of a database, in information retrieval the results returned may or may not match the query, so results are typically ranked. This of results is a key difference of information retrieval searching compared to database searching. 
+</p>
+<p>
+Depending on the the data objects may be, for example, text documents, images, audio, or videos. Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates or . 
+</p>
+<p>
+Most IR systems compute a numeric score on how well each object in the database matches the query, and rank the objects according to this value. The top ranking objects are then shown to the user. The process may then be iterated if the user wishes to refine the query. 
+</p>
+<h2> 
+<span class="mw-headline" id="History">
+History 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<blockquote class="templatequote" style="float:right; width:33%;">
+<p>
+there is ... a machine called the Univac ... whereby letters and figures are coded as a pattern of magnetic spots on a long steel tape. By this means the text of a document, preceded by its subject code symbol, ca be recorded ... the machine ... automatically selects and types out those references which have been coded in any desired way at a rate of 120 words a minute 
+</p>
+<div class="templatequotecite">
+—? <cite> J. E. Holmstrom, 1948 </cite> 
+</div>
+</blockquote> 
+<p>
+The idea of using computers to search for relevant pieces of information was popularized in the article by in 1945. It would appear that Bush was inspired by patents for a 'statistical machine' - filed by in the 1920s and '30s - that searched for documents stored on film. The first description of a computer searching for information was described by Holmstrom in 1948, detailing an early mention of the computer. Automated information retrieval systems were introduced in the 1950s: one even featured in the 1957 romantic comedy, . In the 1960s, the first large information retrieval research group was formed by at Cornell. By the 1970s several different retrieval techniques had been shown to perform well on small such as the Cranfield collection (several thousand documents). Large-scale retrieval systems, such as the Lockheed Dialog system, came into use early in the 1970s. 
+</p>
+<p>
+In 1992, the US Department of Defense along with the (NIST), cosponsored the (TREC) as part of the TIPSTER text program. The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for evaluation of text retrieval methodologies on a very large text collection. This catalyzed research on methods that to huge corpora. The introduction of has boosted the need for very large scale retrieval systems even further. 
+</p>
+<h2> 
+<span class="mw-headline" id="Model_types">
+Model types 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<div class="thumb tright">
+<div class="thumbinner" style="width:502px;">
+<div class="thumbcaption">
+Categorization of IR-models (translated from , original source ).
+ 
+</div>
+</div>
+</div>
+<p>
+For effectively retrieving relevant documents by IR strategies, the documents are typically transformed into a suitable representation. Each retrieval strategy incorporates a specific model for its document representation purposes. The picture on the right illustrates the relationship of some common models. In the picture, the models are categorized according to two dimensions: the mathematical basis and the properties of the model. 
+</p>
+<h3> 
+<span class="mw-headline" id="First_dimension:_mathematical_basis">
+First dimension: mathematical basis 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h3> <ul> <li> <i> Set-theoretic </i> models represent documents as of words or phrases. Similarities are usually derived from set-theoretic operations on those sets. Common models are: </li> <li> <i> Algebraic models </i> represent documents and queries usually as vectors, matrices, or tuples. The similarity of the query vector and document vector is represented as a scalar value. <ul> <li> a.k.a. </li> </ul> </li> <li> <i> Probabilistic models </i> treat the process of document retrieval as a probabilistic inference. Similarities are computed as probabilities that a document is relevant for a given query. Probabilistic theorems like the are often used in these models. <ul> <li> on which is based the relevance function </li> </ul> </li> <li> <i> Feature-based retrieval models </i> view documents as vectors of values of <i> feature functions </i> (or just <i> features </i> ) and seek the best way to combine these features into a single relevance score, typically by methods. Feature functions are arbitrary functions of document and query, and as such can easily incorporate almost any other retrieval model as just another feature. </li> </ul> <h3> 
+<span class="mw-headline" id="Second_dimension:_properties_of_the_model">
+Second dimension: properties of the model 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h3> <ul> <li> <i> Models without term-interdependencies </i> treat different terms/words as independent. This fact is usually represented in vector space models by the assumption of term vectors or in probabilistic models by an assumption for term variables. </li> <li> <i> Models with immanent term interdependencies </i> allow a representation of interdependencies between terms. However the degree of the interdependency between two terms is defined by the model itself. It is usually directly or indirectly derived (e.g. by ) from the of those terms in the whole set of documents. </li> <li> <i> Models with transcendent term interdependencies </i> allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined. They rely an external source for the degree of interdependency between two terms. (For example, a human or sophisticated algorithms.) </li> </ul> <h2> 
+<span class="mw-headline" id="Performance_and_correctness_measures">
+Performance and correctness measures 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<p>
+The evaluation of an information retrieval system' is the process of assessing how well a system meets the information needs of its users. In general, measurement considers a collection of documents to be searched and a search query. Traditional evaluation metrics, designed for 
+<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">
+[] 
+</sup>
+or top-k retrieval, include . All measures assume a notion of relevancy: every document is known to be either relevant or non-relevant to a particular query. In practice, queries may be and there may be different shades of relevancy. 
+</p>
+<h2> 
+<span class="mw-headline" id="Timeline">
+Timeline 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> <ul> <li> Before the <b> 1900s </b> <dl> <dd> <b> 1801 </b> : invents the , the first machine to use punched cards to control a sequence of operations.
+ </dd> <dd> <b> 1880s </b> : invents an electro-mechanical data tabulator using punch cards as a machine readable medium.
+ </dd> <dd> <b> 1890 </b> Hollerith , and used to process the data.
+ </dd> </dl> </li> <li> <b> 1920s-1930s </b> <dl> <dd> submits patents for his "Statistical Machine” a document search engine that used photoelectric cells and pattern recognition to search the metadata on rolls of microfilmed documents.
+ </dd> </dl> </li> <li> <b> 1940s–1950s </b> <dl> <dd> <b> late 1940s </b> : The US military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans. <dl> <dd> <b> 1945 </b> : 's appeared in .
+ </dd> <dd> <b> 1947 </b> : (research engineer at IBM since 1941) began work on a mechanized punch card-based system for searching chemical compounds.
+ </dd> </dl> </dd> <dd> <b> 1950s </b> : Growing concern in the US for a "science gap" with the USSR motivated, encouraged funding and provided a backdrop for mechanized literature searching systems ( <i> et al. </i> ) and the invention of citation indexing ().
+ </dd> <dd> <b> 1950 </b> : The term "information retrieval" was coined by .
+ </dd> <dd> <b> 1951 </b> : Philip Bagley conducted the earliest experiment in computerized document retrieval in a master thesis at .
+ </dd> <dd> <b> 1955 </b> : Allen Kent joined , and eventually became associate director of the Center for Documentation and Communications Research. That same year, Kent and colleagues published a paper in American Documentation describing the precision and recall measures as well as detailing a proposed "framework" for evaluating an IR system which included statistical sampling methods for determining the number of relevant documents not retrieved.
+ </dd> <dd> <b> 1958 </b> : International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified. See: <i> Proceedings of the International Conference on Scientific Information, 1958 </i> (National Academy of Sciences, Washington, DC, 1959)
+ </dd> <dd> <b> 1959 </b> : published "Auto-encoding of documents for information retrieval."
+ </dd> </dl> </li> <li> <b> 1960s </b> : <dl> <dd> <b> early 1960s </b> : began work on IR at Harvard, later moved to Cornell.
+ </dd> <dd> <b> 1960 </b> : and John Lary Kuhns published "On relevance, probabilistic indexing, and information retrieval" in the Journal of the ACM 7(3):216–244, July 1960.
+ </dd> <dd> <b> 1962 </b> : <ul> <li> published early findings of the Cranfield studies, developing a model for IR system evaluation. See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems". Cranfield Collection of Aeronautics, Cranfield, England, 1962. </li> <li> Kent published <i> Information Analysis and Retrieval </i> . </li> </ul> </dd> <dd> <b> 1963 </b> : <ul> <li> Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information." The report was named after Dr. . </li> <li> Joseph Becker and published text on information retrieval. Becker, Joseph; Hayes, Robert Mayo. <i> Information storage and retrieval: tools, elements, theories </i> . New York, Wiley (1963). </li> </ul> </dd> <dd> <b> 1964 </b> : <ul> <li> finished her thesis at Cambridge, <i> Synonymy and Semantic Classification </i> , and continued work on as it applies to IR. </li> <li> The sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation." Several highly significant papers, including G. Salton's first published reference (we believe) to the system. </li> </ul> </dd> <dd> <b> mid-1960s </b> : <dl> <dd> <ul> <li> National Library of Medicine developed Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch-retrieval system. </li> <li> Project Intrex at MIT. </li> </ul> </dd> <dd> <b> 1965 </b> : published <i> Libraries of the Future </i> .
+ </dd> <dd> <b> 1966 </b> : was involved in studies at University of Chicago on Requirements for Future Catalogs.
+ </dd> </dl> </dd> <dd> <b> late 1960s </b> : completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval. <dl> <dd> <b> 1968 </b> :
+ </dd> </dl> <ul> <li> Gerard Salton published <i> Automatic Information Organization and Retrieval </i> . </li> <li> John W. Sammon, Jr.'s RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model. </li> </ul> <dl> <dd> <b> 1969 </b> : Sammon's "" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system.
+ </dd> </dl> </dd> </dl> </li> <li> <b> 1970s </b> <dl> <dd> <b> early 1970s </b> : <dl> <dd> <ul> <li> First online systems—NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT. </li> <li> promoting concept of , published <i> Computer Lib/Dream Machines </i> . </li> </ul> </dd> </dl> </dd> <dd> <b> 1971 </b> : and published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis."
+ </dd> <dd> <b> 1975 </b> : Three highly influential publications by Salton fully articulated his vector processing framework and term discrimination model: <dl> <dd> <ul> <li> <i> A Theory of Indexing </i> (Society for Industrial and Applied Mathematics) </li> <li> <i> A Theory of Term Importance in Automatic Text Analysis </i> ( v. 26) </li> <li> <i> A Vector Space Model for Automatic Indexing </i> ( 18:11) </li> </ul> </dd> </dl> </dd> <dd> <b> 1978 </b> : The First conference.
+ </dd> <dd> <b> 1979 </b> : C. J. van Rijsbergen published <i> Information Retrieval </i> (Butterworths). Heavy emphasis on probabilistic models.
+ </dd> <dd> <b> 1979 </b> : Tamas Doszkocs implemented the CITE natural language user interface for MEDLINE at the National Library of Medicine. The CITE system supported free form query input, ranked output and relevance feedback.
+ </dd> </dl> </li> <li> <b> 1980s </b> <dl> <dd> <b> 1980 </b> : First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge.
+ </dd> <dd> <b> 1982 </b> : , Robert N. Oddy, and Helen M. Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval. This was an important concept, though their automated analysis tool proved ultimately disappointing.
+ </dd> <dd> <b> 1983 </b> : Salton (and Michael J. McGill) published <i> Introduction to Modern Information Retrieval </i> (McGraw-Hill), with heavy emphasis on vector models.
+ </dd> <dd> <b> 1985 </b> : David Blair and publish: An Evaluation of Retrieval Effectiveness for a Full-Text Document-Retrieval System
+ </dd> <dd> <b> mid-1980s </b> : Efforts to develop end-user versions of commercial IR systems. <dl> <dd> <b> 1985–1993 </b> : Key papers on and experimental systems for visualization interfaces.
+ </dd> <dd> Work by , , Matthew Chalmers, Anselm Spoerri and others.
+ </dd> </dl> </dd> <dd> <b> 1989 </b> : First proposals by at .
+ </dd> </dl> </li> <li> <b> 1990s </b> <dl> <dd> <b> 1992 </b> : First conference.
+ </dd> <dd> <b> 1997 </b> : Publication of 's <i> Information Storage and Retrieval </i> with emphasis on visualization and multi-reference point systems.
+ </dd> <dd> <b> 1999 </b> : Publication of and Berthier Ribeiro-Neto's <i> Modern Information Retrieval </i> by Addison Wesley, the first book that attempts to cover all IR.
+ </dd> <dd> <b> late 1990s </b> : implementation of many features formerly found only in experimental IR systems. Search engines become the most common and maybe best instantiation of IR models.
+ </dd> </dl> </li> </ul> <h2> 
+<span class="mw-headline" id="Major_conferences">
+Major conferences 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> <ul> <li> SIGIR: </li> <li> ECIR: </li> <li> CIKM: </li> <li> WWW: </li> <li> WSDM: </li> <li> ICTIR: </li> </ul> <h2> 
+<span class="mw-headline" id="Awards_in_the_field">
+Awards in the field 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> <h2> 
+<span class="mw-headline" id="See_also">
+See also 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<div class="div-col columns column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em;">
+<ul> <li> &nbsp;– Information retrieval strategies in datasets </li> <li> &nbsp;– Device used on a computer for storing data </li> <li> &nbsp;– Finding patterns in large data sets using complex computational methods </li> <li> &nbsp;(HCIR) </li> <li> &nbsp;– Automatically extracting structured information from un- or semi-structured machine-readable documents, such as human language texts </li> <li> &nbsp;– (term frequency–inverse document frequency) a numerical statistic intended to reflect how important a word is to a document in a collection or text corpus </li> </ul> 
+</div>
+<h2> 
+<span class="mw-headline" id="References">
+References 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<div class="reflist" style="list-style-type: decimal;">
+<div class="mw-references-wrap mw-references-columns">
+<ol class="references"> <li id="cite_note-1"> 
+<span class="reference-text">
+Jansen, B. J. and Rieh, S. (2010) 2016-03-04 at the . Journal of the American Society for Information Sciences and Technology. 61(8), 1517-1534. 
+</span>
+</li> <li id="cite_note-goodron2000-2"> 
+<span class="reference-text">
+<cite id="CITEREFGoodrum2000" class="citation journal cs1"> Goodrum, Abby A. (2000). "Image Information Retrieval: An Overview of Current Research". <i> Informing Science </i> . <b> 3 </b> (2). </cite> 
+</span>
+</li> <li id="cite_note-Foote99-3"> 
+<span class="reference-text">
+<cite id="CITEREFFoote1999" class="citation journal cs1"> Foote, Jonathan (1999). "An overview of audio information retrieval". <i> Multimedia Systems </i> . <b> 7 </b> : 2–10. &nbsp;. :. </cite> 
+</span>
+</li> <li id="cite_note-Beel2009-4"> 
+<span class="reference-text">
+<cite id="CITEREFBeelGippStiller2009" class="citation conference cs1">
+Beel, Jöran; Gipp, Bela; Stiller, Jan-Olaf (2009). . Proceedings of the 5th International Conference on Collaborative Computing: Networking, Applications and Worksharing (CollaborateCom'09). Washington, DC: IEEE. Archived from on 2011-05-13 
+<span class="reference-accessdate">
+. Retrieved 
+<span class="nowrap">
+2012-03-13 
+</span>
+</span>
+. </cite> 
+</span>
+</li> <li id="cite_note-Frakes1992-5"> 
+<span class="reference-text">
+<cite id="CITEREFFrakesBaeza-Yates1992" class="citation book cs1"> Frakes, William B.; Baeza-Yates, Ricardo (1992). . Prentice-Hall, Inc. &nbsp;. Archived from on 2013-09-28. </cite> 
+</span>
+</li> <li id="cite_note-Singhal2001-6"> 
+<span class="mw-cite-backlink">
+^ 
+</span>
+<span class="reference-text">
+<cite id="CITEREFSinghal2001" class="citation journal cs1"> Singhal, Amit (2001). 
+<span class="cs1-format">
+(PDF) 
+</span>
+. <i> Bulletin of the IEEE Computer Society Technical Committee on Data Engineering </i> . <b> 24 </b> (4): 35–43. </cite> 
+</span>
+</li> <li id="cite_note-Sanderson2012-7"> 
+<span class="reference-text">
+<cite id="CITEREFMark_Sanderson_&amp;_W._Bruce_Croft2012" class="citation journal cs1">
+Mark Sanderson &amp; W. Bruce Croft (2012). . <i> Proceedings of the IEEE </i> . <b> 100 </b> : 1444–1451. :. </cite> 
+</span>
+</li> <li id="cite_note-Holmstrom1948-8"> 
+<span class="reference-text">
+<cite id="CITEREFJE_Holmstrom1948" class="citation journal cs1"> JE Holmstrom (1948). . <i> The Royal Society Scientific Information Conference, 21 June-2 July 1948: Report and Papers Submitted </i> : 85. </cite> 
+</span>
+</li> <li id="cite_note-9"> 
+<span class="reference-text">
+Mooers, Calvin N.; (Zator Technical Bulletin No. 48), cited in <cite id="CITEREFFairthorne1958" class="citation journal cs1"> Fairthorne, R. A. (1958). . <i> The Computer Journal </i> . <b> 1 </b> (1): 37. :. </cite> 
+</span>
+</li> <li id="cite_note-Doyle1975-10"> 
+<span class="reference-text">
+<cite id="CITEREFDoyleBecker1975" class="citation book cs1"> Doyle, Lauren; Becker, Joseph (1975). <i> Information Retrieval and Processing </i> . Melville. pp.&nbsp;410 pp. &nbsp;. </cite> 
+</span>
+</li> <li id="cite_note-11"> 
+<span class="reference-text">
+<cite id="CITEREFPerryKentBerry1955" class="citation journal cs1"> Perry, James W.; Kent, Allen; Berry, Madeline M. (1955). "Machine literature searching X. Machine language; factors underlying its design and development". <i> American Documentation </i> . <b> 6 </b> (4): 242–254. :. </cite> 
+</span>
+</li> <li id="cite_note-Maron2008-12"> 
+<span class="reference-text">
+<cite id="CITEREFMaron2008" class="citation journal cs1"> Maron, Melvin E. (2008). 
+<span class="cs1-format">
+(PDF) 
+</span>
+. <i> Information Processing and Management </i> . <b> 44 </b> (2): 971–972. :. </cite> 
+</span>
+</li> <li id="cite_note-13"> 
+<span class="reference-text">
+<cite id="CITEREFN._Jardine,_C.J._van_Rijsbergen1971" class="citation journal cs1"> N. Jardine, C.J. van Rijsbergen (December 1971). "The use of hierarchic clustering in information retrieval". <i> Information Storage and Retrieval </i> . <b> 7 </b> (5): 217–240. :. </cite> 
+</span>
+</li> <li id="cite_note-14"> 
+<span class="reference-text">
+Doszkocs, T.E. &amp; Rapp, B.A. (1979). "Searching MEDLINE in English: a Prototype User Inter-face with Natural Language Query, Ranked Output, and relevance feedback," In: Proceedings of the ASIS Annual Meeting, 16: 131-139. 
+</span>
+</li> <li id="cite_note-Korfhage1997-15"> 
+<span class="reference-text">
+<cite id="CITEREFKorfhage1997" class="citation book cs1"> Korfhage, Robert R. (1997). . Wiley. pp.&nbsp;. &nbsp;. </cite> 
+</span>
+</li> </ol> 
+</div>
+</div>
+<h2> 
+<span class="mw-headline" id="Further_reading">
+Further reading 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> <ul> <li> Ricardo Baeza-Yates, Berthier Ribeiro-Neto. . Addison-Wesley, UK, 2011. </li> <li> Stefan Büttcher, Charles L. A. Clarke, and Gordon V. Cormack. . MIT Press, Cambridge, Massachusetts, 2010. </li> <li> <cite class="citation web cs1"> . <i> Library &amp; Information Science Network </i> . 24 April 2015. </cite> </li> <li> Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze. . Cambridge University Press, 2008. </li> </ul> <h2> 
+<span class="mw-headline" id="External_links">
+External links 
+</span>
+<span class="mw-editsection">
+<span class="mw-editsection-bracket">
+[ 
+</span>
+<span class="mw-editsection-bracket">
+] 
+</span>
+</span>
+</h2> 
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody>
+<tr> 
+<td class="mbox-text plainlist">
+Wikiquote has quotations related to: </td> </tr> 
+</tbody>
+</table> 
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody>
+<tr> 
+<td class="mbox-text plainlist">
+Wikimedia Commons has media related to . </td> </tr> 
+</tbody>
+</table> <ul> <li> (online book) by </li> </ul> 
+</div>
+</body>
+</html>

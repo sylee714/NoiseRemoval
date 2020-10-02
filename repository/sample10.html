@@ -1,0 +1,284 @@
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Linting | Python in Visual Studio Code</title>
+</head>
+<body>
+<div class="markdown" data-reactid="73">
+<h1 data-reactid="74"> Linting </h1> 
+<div data-reactid="75">
+<h3> 1. Unable to import <module> (pylint)
+ </module> </h3> <ul> <li> Scenario: You have a module installed, however the linter in the IDE is complaining about; not being able to import the module, hence error messages such as the following are displayed as linter errors: </li> </ul> 
+<pre>
+<code> .. unable 
+<span class="hljs-keyword">
+to 
+</span>
+<span class="hljs-keyword">
+import 
+</span>
+<span class="hljs-string">
+'xxx' 
+</span>
+.. </code> 
+</pre>
+<ul> <li> Cause: The Python extension is most likely using the wrong version of Pylint. </li> </ul> 
+<p>
+<strong> Solution 1: (configure workspace settings to point to fully qualified python executable): </strong> 
+</p>
+<ol> <li> Open the workspace settings (settings.json) </li> <li> Identify the fully qualified path to the python executable (this could even be a virtual environment) </li> <li> Ensure Pylint is installed for the above python environment </li> <li> Configure the setting “pythonPath” to point to (previously identified) the fully qualified python executable. </li> </ol> 
+<pre>
+<code> 
+<span class="hljs-string">
+"python.pythonPath" 
+</span>
+: 
+<span class="hljs-string">
+"/users/xxx/bin/python" 
+</span>
+</code> 
+</pre>
+<p>
+<strong> Solution 2: (open VS Code from an activated virtual environment): </strong> 
+</p>
+<ol> <li> Open the terminal window </li> <li> Activate the relevant python virtual environment </li> <li> Ensure Pylint is installed within this virtual environment <code> pip install pylint </code> </li> <li> Close all instances of VS Code </li> <li> Launch VS Code from within this terminal window (this will ensure the VS Code process will inherit all of the Virtual Env environment settings) </li> </ol> <h3> 2. Linting with xxx failed. … </h3> 
+<p>
+Listing could fail due to a number of reasons. Please check each of the following. 
+</p>
+<p>
+<strong> Cause: The path to the python executable is incorrect </strong> Solution: 
+</p>
+<p>
+<strong> Cause: The linter has not been installed in the Python environment being used </strong> Solution: Identify the Python environment (executable) . Next install the linter(s) against this Python environment (use the corresponding Pip). 
+</p>
+<p>
+<strong> Cause: The Path to the linter is incorrect </strong> Solution: If you have provided a custom path to the linter in settings.json, then ensure this file path exist. 
+</p>
+<p>
+For further information on configuring Linters can be found . 
+</p>
+<h3> 3. Ignore certain messages </h3> 
+<p>
+It is possible you would like to ignore certain linter messages. This could be done easily. Generally most linters support configuration files, hence all you need to do is create the relevant configuration file and ignore the appropriate error message. If on the other hand the linters support the ability to ignore certain messages via command line args, this can be done as well. 
+</p>
+<p>
+<strong> Solution: Add relevant command line args to ignore certain messages </strong> Here we’ll assume you use a TAB character as indentation of python code instead of 4 or 2 spaces. Pylint would generally display a warning for this with the error code W0312. In order to disable this particular message all one needs to do is as follows in the settings.json file: 
+</p>
+<pre>
+<code class="language-json"> "python.linting.pylintArgs": [
+ "--disable=W0312"
+ ],
+ </code> 
+</pre>
+<p>
+Note: You could apply the above configuration settings in your <code> user settings </code> file, so that it applies to all workspaces. This saves you from having to define these settings for every single workspace (every time). 
+</p>
+<p>
+For further information on configuring Linters can be found . 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="breakpoint-max-width-700" data-reactid="76">
+<strong data-reactid="77"> Topics: </strong> <select data-reactid="79"> 
+<option value="/pythonVSCodeDocs/docs/python-path/" data-reactid="80">
+Python Path and Version 
+</option>
+<option value="/pythonVSCodeDocs/docs/autocomplete/" data-reactid="81">
+Autocomplete 
+</option>
+<option value="/pythonVSCodeDocs/docs/formatting/" data-reactid="82">
+Formatting 
+</option>
+<option value="/pythonVSCodeDocs/docs/linting/" data-reactid="83">
+Linting 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging/" data-reactid="84">
+Debugging 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_capture-user-input/" data-reactid="85">
+-&gt; Terminal (Console) Apps 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_terminal-console-apps/" data-reactid="86">
+-&gt; Capture User Input 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_library-functions/" data-reactid="87">
+-&gt; Library Functions 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_google-app-engine/" data-reactid="88">
+-&gt; Google App Engine 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_remote-debugging/" data-reactid="89">
+-&gt; Remote Debugging 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_debugging-nosetests/" data-reactid="90">
+-&gt; nosetests 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_debugging-pytest/" data-reactid="91">
+-&gt; py.test 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_debugging-flask/" data-reactid="92">
+-&gt; Flask 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_sudo-root-privileges/" data-reactid="93">
+-&gt; Sudo (root privileges) 
+</option>
+<option value="/pythonVSCodeDocs/docs/debugging_django/" data-reactid="94">
+-&gt; Django 
+</option>
+<option value="/pythonVSCodeDocs/docs/unittests/" data-reactid="95">
+Unittests 
+</option>
+<option value="/pythonVSCodeDocs/docs/unittests_more-options/" data-reactid="96">
+-&gt; More Options 
+</option>
+<option value="/pythonVSCodeDocs/docs/unittests_unittest-framework/" data-reactid="97">
+-&gt; unittest 
+</option>
+<option value="/pythonVSCodeDocs/docs/unittests_pytest-framework/" data-reactid="98">
+-&gt; py.test 
+</option>
+<option value="/pythonVSCodeDocs/docs/unittests_nose-framework/" data-reactid="99">
+-&gt; nose 
+</option>
+<option value="/pythonVSCodeDocs/docs/refactoring/" data-reactid="100">
+Refactoring 
+</option>
+<option value="/pythonVSCodeDocs/docs/refactoring_rename/" data-reactid="101">
+-&gt; Rename 
+</option>
+<option value="/pythonVSCodeDocs/docs/refactoring_extract-variables/" data-reactid="102">
+-&gt; Extract Variables 
+</option>
+<option value="/pythonVSCodeDocs/docs/refactoring_extract-method/" data-reactid="103">
+-&gt; Extract Method 
+</option>
+<option value="/pythonVSCodeDocs/docs/refactoring_sort-imports/" data-reactid="104">
+-&gt; Sort Imports 
+</option>
+<option value="/pythonVSCodeDocs/docs/jupyter/" data-reactid="105">
+Jupyter (IPython) 
+</option>
+<option value="/pythonVSCodeDocs/docs/jupyter_getting-started/" data-reactid="106">
+-&gt; Getting Started 
+</option>
+<option value="/pythonVSCodeDocs/docs/jupyter_prerequisites/" data-reactid="107">
+-&gt; Prerequisites 
+</option>
+<option value="/pythonVSCodeDocs/docs/jupyter_configuration/" data-reactid="108">
+-&gt; Configuration 
+</option>
+<option value="/pythonVSCodeDocs/docs/jupyter_examples/" data-reactid="109">
+-&gt; Examples 
+</option>
+<option value="/pythonVSCodeDocs/docs/miscellaneous/" data-reactid="110">
+Miscellaneous 
+</option>
+<option value="/pythonVSCodeDocs/docs/contribution/" data-reactid="111">
+Contribution 
+</option>
+<option value="/pythonVSCodeDocs/docs/workspaceSymbols/" data-reactid="112">
+Workspace Symbols 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting/" data-reactid="113">
+Troubleshooting 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting_debugger/" data-reactid="114">
+-&gt; Debugger 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting_virtual-environments/" data-reactid="115">
+-&gt; Virtual Env 
+</option>
+<option selected value="/pythonVSCodeDocs/docs/troubleshooting_linting/" data-reactid="116">
+-&gt; Linting 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting_formatting/" data-reactid="117">
+-&gt; Formatting 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting_intellisense/" data-reactid="118">
+-&gt; Autocomplete 
+</option>
+<option value="/pythonVSCodeDocs/docs/troubleshooting_jupyter/" data-reactid="119">
+-&gt; Jupyter 
+</option>
+<option value="/pythonVSCodeDocs/docs/roadmap/" data-reactid="120">
+Roadmap 
+</option>
+</select> 
+<div class="markdown" data-reactid="123">
+<h1 data-reactid="124"> Linting </h1> 
+<div data-reactid="125">
+<h3> 1. Unable to import <module> (pylint)
+ </module> </h3> <ul> <li> Scenario: You have a module installed, however the linter in the IDE is complaining about; not being able to import the module, hence error messages such as the following are displayed as linter errors: </li> </ul> 
+<pre>
+<code> .. unable 
+<span class="hljs-keyword">
+to 
+</span>
+<span class="hljs-keyword">
+import 
+</span>
+<span class="hljs-string">
+'xxx' 
+</span>
+.. </code> 
+</pre>
+<ul> <li> Cause: The Python extension is most likely using the wrong version of Pylint. </li> </ul> 
+<p>
+<strong> Solution 1: (configure workspace settings to point to fully qualified python executable): </strong> 
+</p>
+<ol> <li> Open the workspace settings (settings.json) </li> <li> Identify the fully qualified path to the python executable (this could even be a virtual environment) </li> <li> Ensure Pylint is installed for the above python environment </li> <li> Configure the setting “pythonPath” to point to (previously identified) the fully qualified python executable. </li> </ol> 
+<pre>
+<code> 
+<span class="hljs-string">
+"python.pythonPath" 
+</span>
+: 
+<span class="hljs-string">
+"/users/xxx/bin/python" 
+</span>
+</code> 
+</pre>
+<p>
+<strong> Solution 2: (open VS Code from an activated virtual environment): </strong> 
+</p>
+<ol> <li> Open the terminal window </li> <li> Activate the relevant python virtual environment </li> <li> Ensure Pylint is installed within this virtual environment <code> pip install pylint </code> </li> <li> Close all instances of VS Code </li> <li> Launch VS Code from within this terminal window (this will ensure the VS Code process will inherit all of the Virtual Env environment settings) </li> </ol> <h3> 2. Linting with xxx failed. … </h3> 
+<p>
+Listing could fail due to a number of reasons. Please check each of the following. 
+</p>
+<p>
+<strong> Cause: The path to the python executable is incorrect </strong> Solution: 
+</p>
+<p>
+<strong> Cause: The linter has not been installed in the Python environment being used </strong> Solution: Identify the Python environment (executable) . Next install the linter(s) against this Python environment (use the corresponding Pip). 
+</p>
+<p>
+<strong> Cause: The Path to the linter is incorrect </strong> Solution: If you have provided a custom path to the linter in settings.json, then ensure this file path exist. 
+</p>
+<p>
+For further information on configuring Linters can be found . 
+</p>
+<h3> 3. Ignore certain messages </h3> 
+<p>
+It is possible you would like to ignore certain linter messages. This could be done easily. Generally most linters support configuration files, hence all you need to do is create the relevant configuration file and ignore the appropriate error message. If on the other hand the linters support the ability to ignore certain messages via command line args, this can be done as well. 
+</p>
+<p>
+<strong> Solution: Add relevant command line args to ignore certain messages </strong> Here we’ll assume you use a TAB character as indentation of python code instead of 4 or 2 spaces. Pylint would generally display a warning for this with the error code W0312. In order to disable this particular message all one needs to do is as follows in the settings.json file: 
+</p>
+<pre>
+<code class="language-json"> "python.linting.pylintArgs": [
+ "--disable=W0312"
+ ],
+ </code> 
+</pre>
+<p>
+Note: You could apply the above configuration settings in your <code> user settings </code> file, so that it applies to all workspaces. This saves you from having to define these settings for every single workspace (every time). 
+</p>
+<p>
+For further information on configuring Linters can be found . 
+</p>
+</body>
+</html>

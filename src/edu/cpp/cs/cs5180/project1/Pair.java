@@ -22,4 +22,16 @@ public class Pair {
 	public int getWeight() {
 		return weight;
 	}
+	
+	public void setI(int start) {
+		i = start;
+	}
+	
+	public void setJ(int end) {
+		j = end;
+	}
+	
+	public void setWeight(int value) {
+		weight = value;
+	}
 }

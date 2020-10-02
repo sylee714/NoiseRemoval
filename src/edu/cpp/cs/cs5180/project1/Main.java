@@ -1,5 +1,6 @@
 package edu.cpp.cs.cs5180.project1;
 
+import java.io.File;
 import java.io.IOException;
 
 import edu.cpp.cs.cs5180.project1.NoiseRemoval;
@@ -7,45 +8,42 @@ import edu.cpp.cs.cs5180.project1.NoiseRemoval;
 public class Main {
 
 	public static void main(String[] args) throws IOException { 
-		NoiseRemoval nr = new NoiseRemoval();
-//		String num = "1";
-//		String temp = "sample" + num + ".html";
-//		System.out.println(temp);
-		String src = "sample.html";
 		
-		// Load the file and apply basic filter
-		nr.setDoc(src);
-		int size = nr.getHTML().length();
-//		System.out.println("Initial size");
-//		System.out.println("Size: " + size);
-		nr.basicFilter();
+		File folder = new File("repository");
+		File[] listOfFiles = folder.listFiles();
+		String filePath = "";
+		String result = "";
 		
+		for (File file : listOfFiles) {
+			if (file.isFile()) {
+				// Get the file path for each file
+				filePath = folder + "/" + file.getName();
+				System.out.println("File path: " + filePath);
+				
+				// Initialize the noise removal
+				NoiseRemoval nr = new NoiseRemoval();
+				nr.setDoc(filePath);
+				nr.basicFilter(true);
+				
+				// If there is no body section after applying the basic filtering
+				// reload the doc and apply the basic filtering without removing empty tags.
+				// Do not perform tokenToRatio to extract the main content if no body section
+				// after applying the basic filtering.
+				if (nr.getBodySize() == 0) {
+					nr.setDoc(folder + file.getName());
+					nr.basicFilter(false);
+					result = nr.getHTML();	
+				} else {
+					nr.tokenize(nr.getBody());
+					nr.optimize();
+					result = nr.getCombined();
+				}
+				
+				// Write the result to a file
+				nr.writeToFile(result, filePath);
+			}
+		}
 		
-		// Check after applying the basic filter
-		String result = nr.getHTML();
-//		System.out.println("Before applying tagToRatio");
-//		System.out.println("Size: " + result.length());
-		
-//		System.out.println(nr.getBody());
-		
-		// Check tagToRatio method
-//		nr.setStringFile(result);
-//		nr.tagToTextRatio(result, 5.0);
-//		System.out.println("After applying tagToRatio");
-//		System.out.println("Size: " + nr.getStringFileSize());
-//		System.out.println(nr.getStringFile());
-		
-		// Write the result to a file
-		String dst = "filtered.html";
-		nr.writeToFile(result, dst);
-//		
-//		
-		System.out.println("-------------------------------------");
-//		System.out.println(nr.getBody());
-		nr.tokenize(nr.getBody());
-		nr.optimize();
-//		nr.printPairs();
-		nr.printMainContent();
 	} 
 
 }
