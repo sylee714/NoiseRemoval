@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import edu.cpp.cs.cs5180.project1.NoiseRemoval;
 
+// Have to change the encoding setting to read Chinese characters
 public class Main {
 
 	public static void main(String[] args) throws IOException { 
@@ -24,7 +25,11 @@ public class Main {
 				NoiseRemoval nr = new NoiseRemoval();
 				nr.setDoc(filePath);
 				nr.basicFilter(true);
+				result = nr.getHTML();
+//				System.out.println(result);
 				
+				
+				// If documents are in Chinese, apply less strict filtering and tokenizing.
 				// If there is no body section after applying the basic filtering
 				// reload the doc and apply the basic filtering without removing empty tags.
 				// Do not perform tokenToRatio to extract the main content if no body section

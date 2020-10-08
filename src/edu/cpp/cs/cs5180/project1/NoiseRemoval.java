@@ -79,7 +79,7 @@ public class NoiseRemoval {
 	public void setDoc(String filePath) {
 		inputFile = new File(filePath);
 		try {
-			doc = Jsoup.parse(inputFile, "UTF-8", "");
+			doc = Jsoup.parse(inputFile, null, "");
 		} catch (IOException e) {
 			System.out.println("Error occured while loading the file");
 		}
